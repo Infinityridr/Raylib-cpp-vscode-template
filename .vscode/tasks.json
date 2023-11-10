@@ -1,0 +1,51 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C++: Build with Raylib",
+			"command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-std=c++23",
+				"-w",
+				"-Wall",
+				"-Wextra",
+				"-pedantic",
+				"-Werror",
+				"-Wshadow",
+				"-Wconversion",
+				"-g",
+				"-I${workspaceFolder}\\include",
+				"-L${workspaceFolder}\\lib",
+				"${workspaceFolder}\\src\\*.cpp",
+				"-o",
+				"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+				"-lraylib",
+				"-lwinmm",
+				"-lgdi32",
+				"-lopengl32"
+			],
+			"options": {
+				"cwd": "C:\\msys64\\mingw64\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: C:\\msys64\\mingw64\\bin\\g++.exe"
+		},
+		{
+			"type": "shell",
+			"label":"Run executable",
+			"command":"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}\\bin"
+			},
+			"group": "build",
+		}
+	]
+}
