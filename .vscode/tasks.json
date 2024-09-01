@@ -1,51 +1,119 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "cppbuild",
-			"label": "C++: Build with Raylib",
-			"command": "C:\\msys64\\mingw64\\bin\\g++.exe",
-			"args": [
-				"-fdiagnostics-color=always",
-				"-std=c++23",
-				"-w",
-				"-Wall",
-				"-Wextra",
-				"-pedantic",
-				"-Werror",
-				"-Wshadow",
-				"-Wconversion",
-				"-g",
-				"-I${workspaceFolder}\\include",
-				"-L${workspaceFolder}\\lib",
-				"${workspaceFolder}\\src\\*.cpp",
-				"-o",
-				"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
-				"-lraylib",
-				"-lwinmm",
-				"-lgdi32",
-				"-lopengl32"
-			],
-			"options": {
-				"cwd": "C:\\msys64\\mingw64\\bin"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": "build",
-			"detail": "compiler: C:\\msys64\\mingw64\\bin\\g++.exe"
-		},
-		{
-			"type": "shell",
-			"label":"Run executable",
-			"command":"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
-			"problemMatcher": [
-				"$gcc"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}\\bin"
-			},
-			"group": "build",
-		}
-	]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C++: Build from pure .cpp",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++23",
+                "-w",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-Werror",
+                "-Wshadow",
+                "-Wconversion",
+                "-g",
+                "-I${workspaceFolder}\\include",
+                "-I${workspaceFolder}\\src\\include",
+                "-L${workspaceFolder}\\lib",
+                "${workspaceFolder}\\src\\implementation\\*.cpp",
+                "${workspaceFolder}\\src\\*.cpp",
+                "-o",
+                "${workspaceFolder}\\bin\\RayMain.exe",
+                "-lraylib",
+                "-lwinmm",
+                "-lgdi32",
+                "-lopengl32"
+            ],
+            "options": {
+                "cwd": "C:\\msys64\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: C:\\msys64\\mingw64\\bin\\g++.exe"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C++: Build from object files",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++23",
+                "-w",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-Werror",
+                "-Wshadow",
+                "-Wconversion",
+                "-g",
+                "-I${workspaceFolder}\\include",
+                "-I${workspaceFolder}\\src\\include",
+                "-L${workspaceFolder}\\lib",
+                "${workspaceFolder}\\src\\objects\\*.o",
+                "${workspaceFolder}\\src\\*.cpp",
+                "-o",
+                "${workspaceFolder}\\bin\\RayMain.exe",
+                "-lraylib",
+                "-lwinmm",
+                "-lgdi32",
+                "-lopengl32"
+            ],
+            "options": {
+                "cwd": "C:\\msys64\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: C:\\msys64\\mingw64\\bin\\g++.exe"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C++: .cpp to .o",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++23",
+                "-w",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-Werror",
+                "-Wshadow",
+                "-Wconversion",
+                "-g",
+                "-c",
+                "-I${workspaceFolder}\\include",
+                "-I${workspaceFolder}\\src\\include",
+                "-L${workspaceFolder}\\lib",
+                "${file}",
+                "-o",
+                "${workspaceFolder}\\src\\objects\\${fileBasenameNoExtension}.o",
+                "-lraylib",
+                "-lwinmm",
+                "-lgdi32",
+                "-lopengl32"
+            ],
+            "options": {
+                "cwd": "C:\\msys64\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: C:\\msys64\\mingw64\\bin\\g++.exe"
+        },
+        {
+            "type": "process",
+            "label": "run",
+            "command": "${workspaceFolder}\\bin\\RayMain.exe",
+            "problemMatcher": []
+        }
+    ]
 }
